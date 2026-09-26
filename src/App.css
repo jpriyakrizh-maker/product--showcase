@@ -1,0 +1,436 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap");
+
+/* =========================
+   RESET
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  background: #ffffff;
+  color: #142333;
+}
+
+button {
+  font-family: "Manrope", sans-serif;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* =========================
+   SHOWCASE
+========================= */
+
+.showcase {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.showcase-container {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+
+  align-items: center;
+
+  padding: 0 55px;
+}
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.product-info {
+  width: 100%;
+  max-width: 430px;
+  padding-left: 5px;
+  z-index: 10;
+}
+
+.product-info h1 {
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(40px, 4.2vw, 60px);
+
+  line-height: 0.95;
+  letter-spacing: -2px;
+
+  font-weight: 700;
+
+  color: #142333;
+
+  margin-bottom: 20px;
+}
+
+.product-description {
+  width: 330px;
+
+  font-size: 11px;
+  font-weight: 500;
+
+  line-height: 1.65;
+
+  color: #536879;
+
+  margin-bottom: 14px;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: 800;
+
+  color: #142333;
+
+  margin-bottom: 9px;
+}
+
+.info-line {
+  width: 230px;
+  height: 1px;
+
+  background: rgba(20, 35, 51, 0.12);
+
+  margin-bottom: 13px;
+}
+
+/* =========================
+   ADD TO BAG
+========================= */
+
+.add-to-bag {
+  width: 230px;
+  height: 40px;
+
+  border: none;
+  border-radius: 24px;
+
+  background: #142333;
+  color: #ffffff;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  letter-spacing: 1.3px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.add-to-bag:hover {
+  transform: translateY(-2px);
+
+  background: #20384c;
+
+  box-shadow:
+    0 8px 18px rgba(20, 35, 51, 0.15);
+}
+
+/* =========================
+   IMAGE SECTION
+========================= */
+
+.product-image-section {
+  width: 100%;
+  height: 100%;
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  overflow: visible;
+
+  background: #ffffff;
+
+  border: none;
+}
+
+/* =========================
+   IMAGE DISPLAY
+========================= */
+
+.image-display {
+  width: 100%;
+  height: 62vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: visible;
+
+  background: #ffffff;
+}
+
+/* =========================
+   SHOE IMAGE
+========================= */
+
+.product-image {
+  width: min(620px, 100%);
+  height: min(48vh, 470px);
+
+  object-fit: contain;
+
+  display: block;
+
+  position: relative;
+
+  z-index: 5;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+
+  border: none;
+  outline: none;
+
+  filter: drop-shadow(
+    0 22px 24px rgba(20, 35, 51, 0.17)
+  );
+
+  will-change: transform, opacity;
+}
+
+/* =========================
+   IMAGE 1 2 3 4
+========================= */
+
+.image-number-selector {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  margin-top: -10px;
+
+  position: relative;
+
+  z-index: 10;
+}
+
+.image-number {
+  width: 46px;
+  height: 36px;
+
+  border: 1px solid rgba(20, 35, 51, 0.14);
+
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #536879;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.image-number:hover {
+  border-color: #142333;
+
+  color: #142333;
+
+  background: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+.image-number.active {
+  border-color: #142333;
+
+  color: #142333;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 4px 10px rgba(20, 35, 51, 0.08);
+}
+
+/* =========================
+   COLOUR SELECTOR
+========================= */
+
+.color-selector {
+  position: absolute;
+
+  left: 0;
+  bottom: 7%;
+
+  width: 230px;
+
+  z-index: 20;
+}
+
+.color-label {
+  font-size: 9px;
+  font-weight: 600;
+
+  color: #667c8d;
+
+  margin-bottom: 9px;
+}
+
+.color-label span {
+  color: #142333;
+
+  font-weight: 800;
+}
+
+.color-options {
+  display: flex;
+
+  align-items: center;
+
+  gap: 13px;
+}
+
+.color-circle {
+  width: 18px;
+  height: 18px;
+
+  padding: 0;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(20, 35, 51, 0.22);
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.color-circle:hover {
+  transform: scale(1.12);
+}
+
+.color-circle.active {
+  transform: scale(1.08);
+
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 3px #142333;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+  .showcase-container {
+    grid-template-columns: 42% 58%;
+    padding: 0 25px;
+  }
+
+  .product-info h1 {
+    font-size: 40px;
+  }
+
+  .product-description {
+    width: 270px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  html,
+  body,
+  #root {
+    overflow: auto;
+  }
+
+  .app,
+  .showcase {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .showcase-container {
+    height: auto;
+    min-height: 100vh;
+
+    grid-template-columns: 1fr;
+
+    padding: 45px 20px 60px;
+  }
+
+  .product-info {
+    max-width: 100%;
+  }
+
+  .product-info h1 {
+    font-size: 42px;
+  }
+
+  .product-description {
+    width: 100%;
+  }
+
+  .product-image-section {
+    height: 430px;
+  }
+
+  .image-display {
+    height: 350px;
+  }
+
+  .color-selector {
+    position: static;
+
+    width: auto;
+
+    margin-top: 18px;
+  }
+}
