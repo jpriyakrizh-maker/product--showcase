@@ -53,13 +53,11 @@ button {
 .showcase-container {
   width: 100%;
   height: 100vh;
-
   display: grid;
   grid-template-columns: 40% 60%;
-
   align-items: center;
-
   padding: 0 55px;
+  position: relative;
 }
 
 /* =========================
@@ -75,47 +73,34 @@ button {
 
 .product-info h1 {
   font-family: "Playfair Display", serif;
-
   font-size: clamp(40px, 4.2vw, 60px);
-
   line-height: 0.95;
   letter-spacing: -2px;
-
   font-weight: 700;
-
   color: #142333;
-
   margin-bottom: 20px;
 }
 
 .product-description {
   width: 330px;
-
   font-size: 11px;
   font-weight: 500;
-
   line-height: 1.65;
-
   color: #536879;
-
   margin-bottom: 14px;
 }
 
 .product-price {
   font-size: 22px;
   font-weight: 800;
-
   color: #142333;
-
   margin-bottom: 9px;
 }
 
 .info-line {
   width: 230px;
   height: 1px;
-
   background: rgba(20, 35, 51, 0.12);
-
   margin-bottom: 13px;
 }
 
@@ -126,18 +111,13 @@ button {
 .add-to-bag {
   width: 230px;
   height: 40px;
-
   border: none;
   border-radius: 24px;
-
   background: #142333;
   color: #ffffff;
-
   font-size: 9px;
   font-weight: 800;
-
   letter-spacing: 1.3px;
-
   cursor: pointer;
 
   transition:
@@ -148,11 +128,8 @@ button {
 
 .add-to-bag:hover {
   transform: translateY(-2px);
-
   background: #20384c;
-
-  box-shadow:
-    0 8px 18px rgba(20, 35, 51, 0.15);
+  box-shadow: 0 8px 18px rgba(20, 35, 51, 0.15);
 }
 
 /* =========================
@@ -162,19 +139,15 @@ button {
 .product-image-section {
   width: 100%;
   height: 100%;
-
   position: relative;
 
   display: flex;
   flex-direction: column;
-
   align-items: center;
   justify-content: center;
 
   overflow: visible;
-
   background: #ffffff;
-
   border: none;
 }
 
@@ -187,14 +160,11 @@ button {
   height: 62vh;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 
   position: relative;
-
   overflow: visible;
-
   background: #ffffff;
 }
 
@@ -207,15 +177,12 @@ button {
   height: min(48vh, 470px);
 
   object-fit: contain;
-
   display: block;
-
   position: relative;
 
   z-index: 5;
 
   user-select: none;
-
   -webkit-user-drag: none;
 
   border: none;
@@ -226,41 +193,57 @@ button {
   );
 
   will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* =========================
+   SHOE CONTROLS
+========================= */
+
+.shoe-controls {
+  position: absolute;
+  left: 40%;
+  right: 0;
+  bottom: 5%;
+
+  height: 125px;
+
+  z-index: 30;
 }
 
 /* =========================
    IMAGE 1 2 3 4
 ========================= */
 
-.image-number-selector {
-  display: flex;
+.angle-selector {
+  position: absolute;
 
+  left: 50%;
+  top: 0;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
 
   gap: 7px;
 
-  margin-top: -10px;
-
-  position: relative;
-
-  z-index: 10;
+  z-index: 20;
 }
 
-.image-number {
-  width: 46px;
-  height: 36px;
+.angle-button {
+  width: 34px;
+  height: 30px;
 
   border: 1px solid rgba(20, 35, 51, 0.14);
-
-  border-radius: 8px;
+  border-radius: 7px;
 
   background: #ffffff;
-
   color: #536879;
 
-  font-size: 10px;
-  font-weight: 600;
+  font-size: 9px;
+  font-weight: 700;
 
   cursor: pointer;
 
@@ -268,28 +251,44 @@ button {
     transform 0.25s ease,
     border-color 0.25s ease,
     background 0.25s ease,
-    color 0.25s ease;
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.image-number:hover {
+.angle-button:hover {
   border-color: #142333;
-
   color: #142333;
-
-  background: #ffffff;
-
   transform: translateY(-2px);
 }
 
-.image-number.active {
+.angle-button.active {
   border-color: #142333;
-
-  color: #142333;
-
-  background: #ffffff;
+  background: #142333;
+  color: #ffffff;
 
   box-shadow:
-    0 4px 10px rgba(20, 35, 51, 0.08);
+    0 4px 10px rgba(20, 35, 51, 0.12);
+}
+
+/* =========================
+   BOTTOM CONTROLS
+========================= */
+
+.bottom-controls {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 25;
 }
 
 /* =========================
@@ -300,9 +299,14 @@ button {
   position: absolute;
 
   left: 0;
-  bottom: 7%;
+  bottom: 0;
 
-  width: 230px;
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  width: auto;
 
   z-index: 20;
 }
@@ -310,25 +314,24 @@ button {
 .color-label {
   font-size: 9px;
   font-weight: 600;
-
   color: #667c8d;
-
-  margin-bottom: 9px;
+  white-space: nowrap;
 }
 
 .color-label span {
   color: #142333;
-
   font-weight: 800;
 }
 
 .color-options {
   display: flex;
-
   align-items: center;
-
   gap: 13px;
 }
+
+/* =========================
+   COLOUR CIRCLES
+========================= */
 
 .color-circle {
   width: 18px;
@@ -337,24 +340,27 @@ button {
   padding: 0;
 
   border-radius: 50%;
-
   border: 1px solid rgba(20, 35, 51, 0.22);
 
   cursor: pointer;
-
   position: relative;
 
   transition:
     transform 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .color-circle:hover {
   transform: scale(1.12);
 }
 
+/* ACTIVE COLOR */
+
 .color-circle.active {
   transform: scale(1.08);
+
+  border-color: #142333;
 
   box-shadow:
     0 0 0 2px #ffffff,
@@ -362,7 +368,89 @@ button {
 }
 
 /* =========================
+   3 SHOE TYPE THUMBNAILS
+========================= */
+
+.shoe-type-selector {
+  position: absolute;
+
+  right: 80px;
+  bottom: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  z-index: 25;
+}
+
+.shoe-thumbnail {
+  width: 55px;
+  height: 42px;
+
+  padding: 3px;
+
+  border: 1px solid rgba(20, 35, 51, 0.12);
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.shoe-thumbnail img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  display: block;
+}
+
+.shoe-thumbnail:hover {
+  transform: translateY(-2px);
+  border-color: rgba(20, 35, 51, 0.35);
+}
+
+.shoe-thumbnail.active {
+  border-color: #142333;
+
+  box-shadow:
+    0 5px 14px rgba(20, 35, 51, 0.12);
+
+  transform: translateY(-2px);
+}
+
+/* =========================
    RESPONSIVE
+========================= */
+
+@media (max-width: 1100px) {
+  .showcase-container {
+    grid-template-columns: 40% 60%;
+    padding: 0 35px;
+  }
+
+  .shoe-controls {
+    left: 40%;
+  }
+
+  .product-image {
+    width: min(540px, 100%);
+  }
+}
+
+/* =========================
+   TABLET
 ========================= */
 
 @media (max-width: 900px) {
@@ -377,6 +465,27 @@ button {
 
   .product-description {
     width: 270px;
+  }
+
+  .shoe-controls {
+    left: 42%;
+  }
+
+  .shoe-type-selector {
+    gap: 7px;
+  }
+
+  .shoe-thumbnail {
+    width: 48px;
+    height: 38px;
+  }
+
+  .color-selector {
+    gap: 9px;
+  }
+
+  .color-options {
+    gap: 8px;
   }
 }
 
@@ -426,11 +535,46 @@ button {
     height: 350px;
   }
 
-  .color-selector {
+  .shoe-controls {
+    position: relative;
+
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    width: 100%;
+    height: auto;
+
+    margin-top: 15px;
+  }
+
+  .angle-selector {
     position: static;
 
-    width: auto;
+    transform: none;
 
-    margin-top: 18px;
+    justify-content: center;
+
+    margin-bottom: 18px;
+  }
+
+  .bottom-controls {
+    position: static;
+
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    justify-content: space-between;
+
+    gap: 12px;
+  }
+
+  .color-selector {
+    position: static;
+  }
+
+  .shoe-type-selector {
+    position: static;
   }
 }
